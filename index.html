@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <meta charset="UTF-8">
+  <meta name="description" content="lightore">
+  <!-- css links -->
+  <!-- index.css link -->
+  <link rel="stylesheet" href="css/index.css">
+  <!-- game.css -->
+  <link rel="stylesheet" href="css/game.css">
+  <!-- hide company -->
+  <!-- hide elements onload -->
+  <script>
+    window.onload = function () {
+      document.getElementById('company').style.display = "none";
+      document.getElementById('game').style.display = "none";
+      document.getElementById('shop').style.display = "none";
+    }
+  </script>
+  <!-- head to company page -->
+  <script>
+    function company() {
+      document.getElementById('hello-page').style.display = "none";
+      document.getElementById('company').style.display = "block";
+    }
+  </script>
+  <!-- load game function -->
+  <script>
+    function loadgame() {
+      var company = document.getElementById('company-name').value;
+      document.getElementById('company').style.display = "none";
+      document.getElementById('game').style.display = "block";
+      document.body.style.background = "white";
+      document.getElementById('company-name-banner').innerHTML = company;
+    }
+  </script>
+  <!-- save the game -->
+  <script src="js/save.js"></script>
+  <!-- remove padding & margin -->
+  <style>
+    body {
+      padding: none;
+      margin: none;
+    }
+  </style>
+  <body>
+    <div id="hello-page">
+      <!-- play game button -->
+      <button class="play" onclick="company()">PLAY</button>
+      <!-- hello message, play settings -->
+      <div class="hello"><h1>SHED tycoon</h1></div>
+    </div>
+    <!-- company -->
+    <div class="company" id="company">
+      
+      <!-- set company name -->
+      <h3>Company Name</h3>
+      <input type="text" id="company-name" placeholder="Your company here" maxlength="10"><br>
+      <a href="#" onclick="loadgame()" class="togame-text">Click here to continue >></a>
+    </div>
+    <!-- game (official file/div tag) -->
+    
+    <div id="game" class='game'>
+      
+      <!-- company name banner -->
+      <div class="company-banner">
+        <h2 id="company-name-banner"></h2>
+      </div>
+      
+      <!-- shed lvl 1 -->
+      
+      <!-- add free money button -->
+      <button onclick="addmoney()">+</button><br>
+      
+      <!-- money -->
+      <span style="color: black">Money:</span>
+      <p id="money-amount"></p><br>
+      <br><br><br><br><br><br>
+      <button onclick="openshop()">SHOP</button>
+      
+    </div>
+    
+    <!-- shop -->
+    <div id="shop">
+      <button onclick="closeshop()">CLOSE</button>
+      <!-- prices -->
+      <div class="prices">
+        <!-- 50 dollars -->
+        <span>$50</span><br>
+        <!-- 100 coins -->
+        <span>$100</span>
+      </div>
+      <!-- 2 options for shed's -->
+      <button onclick="shed()">basic shed tier</button>
+      <br>
+      <!-- infinfite clicker -->
+      <button onclick="infinite()">Crazy clicker</button>
+      
+    </div>
+    <!-- whole entire game script -->
+    <script src="js/game.js"></script>
+    <!-- shop.js script -->
+    <script src="js/shop.js"></script>
+    
+  </body>
+</html>
